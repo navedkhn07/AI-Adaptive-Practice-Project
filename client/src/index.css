@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand: #00bcd4;
+  --brand-deep: #0e7490;
+  --brand-soft: #cffafe;
+  --ink: #0f172a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+  background:
+    radial-gradient(circle at 15% 0%, rgba(34, 211, 238, 0.22), transparent 40%),
+    radial-gradient(circle at 85% 20%, rgba(20, 184, 166, 0.18), transparent 35%),
+    linear-gradient(135deg, #f4fbff 0%, #f8fafc 45%, #ecfeff 100%);
+  color: #0f172a;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Space Grotesk", sans-serif;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+@keyframes floatY {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes fadeLift {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-xl bg-cyan-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-cyan-700 hover:shadow-cyan-200/60 hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center rounded-xl border border-cyan-200 bg-white/90 px-4 py-2 text-sm font-semibold text-cyan-700 shadow-sm transition hover:-translate-y-0.5 hover:border-cyan-400 hover:bg-cyan-50;
+  }
+
+  .input {
+    @apply w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 outline-none ring-cyan-200 transition focus:border-cyan-400 focus:ring-2;
+  }
+
+  .label {
+    @apply mb-1 block text-sm font-medium text-slate-700;
+  }
+
+  .glass-panel {
+    @apply border border-cyan-100/80 bg-white/75 backdrop-blur-md;
+  }
+
+  .fade-lift {
+    animation: fadeLift 0.6s ease-out both;
+  }
+
+  .float-y {
+    animation: floatY 7s ease-in-out infinite;
+  }
+}
