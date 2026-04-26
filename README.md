@@ -72,17 +72,21 @@ From project root, install dependencies in both apps:
 
 ## Running the App
 
-Run backend:
+Single setup from the project root:
 
-- cd server
+- npm install
 - npm run dev
 
-Run frontend in another terminal:
+This starts both the backend and frontend together during local development.
 
-- cd client
-- npm run dev
+For Railway single-service deployment:
 
-Frontend defaults to http://localhost:5173 and backend to http://localhost:5000.
+- Build command: `npm run build`
+- Start command: `npm start`
+- Set `MONGO_URI`, `JWT_SECRET`, `AI_API_KEY`, `AI_PROVIDER`, and `AI_MODEL`
+- Set `VITE_API_URL` to `/api` if you are serving the frontend and backend from the same Railway service
+
+In production, the Express server serves the built React app from `client/dist`.
 
 ## API Endpoints
 
